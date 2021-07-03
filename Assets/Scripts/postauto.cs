@@ -13,7 +13,8 @@ public class postauto : MonoBehaviour
     public Material noiseworld;
     
     private float x = 0.17f;
-    //private Vector4 tint = new Color(255f,255f,255f, 0f);
+    private Vector4 tint2 = new Color(0f,255f,255f, 0f);
+    private Vector4 tint1 = new Color(255f,255f,255f, 0f);
 
     private Vector4 noisetiles = new Vector4(1f,1f,1f,1f);
 
@@ -21,15 +22,31 @@ public class postauto : MonoBehaviour
 
 
  public static class FadeAudioSource {
-    public static IEnumerator StartFade(Material material, float duration, float destination)
+    public static IEnumerator StartFade(Material material, float duration, float destinationx, float destinationy)
     {
         float currentTime = 0;
-        float start = material.GetFloat("noisescale");
+        Vector4 start = material.GetVector("noisetiles");
 
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
-            material.SetFloat("noisescale",Mathf.Lerp(start, destination, currentTime / duration));
+            material.SetVector("noisetiles",new Vector4(Mathf.Lerp(start.x, destinationx, currentTime / duration),Mathf.Lerp(start.y, destinationy, currentTime / duration),1f,1f));
+            
+            yield return null;
+        }
+        yield break;
+    }
+
+    public static IEnumerator StartFadeTwo(Material material, float duration, float destination)
+    {
+        float currentTime = 0;
+        float start = material.GetFloat("fogwarp");
+
+        while (currentTime < duration)
+        {
+            currentTime += Time.deltaTime;
+            material.SetFloat("fogwarp",Mathf.Lerp(start, destination, currentTime / duration));
+            
             yield return null;
         }
         yield break;
@@ -62,12 +79,24 @@ public class postauto : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)){
             gamemode = gamemode %2;
             gamemode += 1;
-            StartCoroutine(FadeAudioSource.StartFade(noiseworld, 3f,100f));
-            noiseworld.SetFloat("noisescale",x);
+            if(gamemode == 1){
+                StartCoroutine(FadeAudioSource.StartFade(noiseworld, 3f,1f, 1f));
+                StartCoroutine(FadeAudioSource.StartFadeTwo(noiseworld, 3f,0.9f));
+                bloom.tint.value = tint1;
+            }
+            if(gamemode == 2){
+                StartCoroutine(FadeAudioSource.StartFade(noiseworld, 3f,20f, 15f));
+                StartCoroutine(FadeAudioSource.StartFadeTwo(noiseworld, 10f,60f));
+                bloom.tint.value = tint2;
+                
+            }
+            //noiseworld.SetFloat("noisescale",x);
             
         }
 
         if (gamemode ==1){
+
+            
 
                 if (Input.GetKey(KeyCode.UpArrow)){
                 bloom.intensity.value += 0.3f;
@@ -96,8 +125,7 @@ public class postauto : MonoBehaviour
 
         if (gamemode ==2){
 
-            
-
+                noiseworld.SetFloat("noiseoffset", Time.time);
             
                 
                 if (Input.GetKey(KeyCode.UpArrow)){
@@ -111,8 +139,8 @@ public class postauto : MonoBehaviour
                 }
 
                 if (Input.GetKey(KeyCode.RightArrow)){
-                    noisetiles.x += 0.01f;
-                    noiseworld.SetVector("noisetiles",noisetiles);
+                    x += 0.01f;
+                    noiseworld.SetFloat("noisescale",x);
                     
                 }
 

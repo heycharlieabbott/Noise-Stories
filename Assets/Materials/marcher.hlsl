@@ -74,8 +74,15 @@ void marcher_float (float3 campos, float3 rd, float2 uv, float3 modvec, float ra
     if (d < maxdist){
 
         col.rgb = 1.;
-        //col *= sin(fog * fogwarp);
-        col *= fog;
+        if (fogwarp >= 1.){
+          col *= sin(fog * fogwarp);
+          col.r *= abs(cos(campos.z /30.));
+          col.g *= abs(sin(campos.y / 20.))/2.;
+          col.b *= abs(sin(col.r * col.g * 3.));
+          col *= fog;
+        }
+        else col *= fog;
+        
         
     }
 

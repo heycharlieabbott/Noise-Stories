@@ -1183,7 +1183,7 @@
     },
     "m_Name": "noiseoffset",
     "m_DefaultReferenceName": "Vector1_6d5138a67ec14736b2cd8bdc1bcbcf46",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "noiseoffset",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
