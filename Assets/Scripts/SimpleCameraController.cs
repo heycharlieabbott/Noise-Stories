@@ -51,6 +51,8 @@ namespace UnityTemplateProjects
             {
                 t.eulerAngles = new Vector3(pitch, yaw, roll);
                 t.position = new Vector3(x, y, z);
+                
+            
             }
         }
         
@@ -74,6 +76,13 @@ namespace UnityTemplateProjects
         [Tooltip("Whether or not to invert our Y axis for mouse input to rotation.")]
         public bool invertY = false;
 
+
+        public Vector3 initpos;
+        public Transform campos;
+
+
+
+
 #if ENABLE_INPUT_SYSTEM
         InputAction movementAction;
         InputAction verticalMovementAction;
@@ -84,6 +93,8 @@ namespace UnityTemplateProjects
         void Start()
         {
             var map = new InputActionMap("Simple Camera Controller");
+
+            campos.position = transform.position;
 
             lookAction = map.AddAction("look", binding: "<Mouse>/delta");
             movementAction = map.AddAction("move", binding: "<Gamepad>/leftStick");
@@ -141,11 +152,11 @@ namespace UnityTemplateProjects
             }
             if (Input.GetKey(KeyCode.A))
             {
-                direction += Vector3.left;
+                direction += Vector3.right;
             }
             if (Input.GetKey(KeyCode.D))
             {
-                direction += Vector3.right;
+                direction += Vector3.left;
             }
             if (Input.GetKey(KeyCode.Q))
             {
@@ -162,6 +173,11 @@ namespace UnityTemplateProjects
         void Update()
         {
             // Exit Sample  
+
+            // if (Input.GetKey(KeyCode.Space)){
+            //     transform.position = initpos;
+            //     Debug.Log(initpos);
+            // }
 
             if (IsEscapePressed())
             {

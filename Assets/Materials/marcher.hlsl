@@ -65,7 +65,9 @@ void marcher_float (float3 campos, float3 rd, float2 uv, float3 modvec, float ra
 
     rd = normalize(float3(uv.x - camnorm.x,uv.y - camnorm.y,1));
 
-    float d = RayMarch(campos,rd, modvec + noise, rad, cubesize);
+    float radoff = sin(time/2.) *4.; 
+
+    float d = RayMarch(campos,rd, modvec + noise, rad + radoff, cubesize);
 
     float fog = 1-d/maxdist*fogcontrol;
 

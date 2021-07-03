@@ -7,16 +7,16 @@
             "m_Id": "7d651fe3691e48b0b651912d9f3b94a9"
         },
         {
-            "m_Id": "240cd1cfd75049c896fe1f35195f2121"
-        },
-        {
             "m_Id": "ca82e68c423243459034339ceba4c459"
         },
         {
-            "m_Id": "2d8f0f5d1a80477fa8c45a4c10422314"
+            "m_Id": "240cd1cfd75049c896fe1f35195f2121"
         },
         {
             "m_Id": "dcc9a8a30a6047fbb8caba65200bfd2a"
+        },
+        {
+            "m_Id": "2d8f0f5d1a80477fa8c45a4c10422314"
         },
         {
             "m_Id": "6d5138a67ec14736b2cd8bdc1bcbcf46"
@@ -562,13 +562,13 @@
     },
     "m_Name": "rad",
     "m_DefaultReferenceName": "Vector1_240cd1cfd75049c896fe1f35195f2121",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "rad",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 0.5299999713897705,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -641,7 +641,7 @@
     },
     "m_Name": "noisescale",
     "m_DefaultReferenceName": "Vector1_2d8f0f5d1a80477fa8c45a4c10422314",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "noisescale",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -1271,7 +1271,7 @@
     },
     "m_Name": "modvec",
     "m_DefaultReferenceName": "Vector3_7d651fe3691e48b0b651912d9f3b94a9",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "modvec",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -1419,7 +1419,7 @@
     },
     "m_Name": "fogwarp",
     "m_DefaultReferenceName": "Vector1_8325c6e1403b4eb2834ec7c52819a35d",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "fogwarp",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
@@ -2164,16 +2164,16 @@
     },
     "m_Name": "cubesize",
     "m_DefaultReferenceName": "Vector3_ca82e68c423243459034339ceba4c459",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "cubesize",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
+        "x": 1.0800000429153443,
+        "y": 5.5,
+        "z": 0.550000011920929,
         "w": 0.0
     }
 }
@@ -2277,13 +2277,13 @@
     },
     "m_Name": "fogcontrol",
     "m_DefaultReferenceName": "Vector1_d2bf19a339cd4a3abcdbd2ad83141c86",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "fogcontrol",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
-    "m_Value": 0.0,
+    "m_Value": 1.4299999475479127,
     "m_FloatType": 0,
     "m_RangeValues": {
         "x": 0.0,
@@ -2338,15 +2338,15 @@
     },
     "m_Name": "noisetiles",
     "m_DefaultReferenceName": "Vector2_dcc9a8a30a6047fbb8caba65200bfd2a",
-    "m_OverrideReferenceName": "",
+    "m_OverrideReferenceName": "noisetiles",
     "m_GeneratePropertyBlock": true,
     "m_Precision": 0,
     "overrideHLSLDeclaration": false,
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "x": 0.0,
-        "y": 0.0,
+        "x": 1.0,
+        "y": 1.0,
         "z": 0.0,
         "w": 0.0
     }
