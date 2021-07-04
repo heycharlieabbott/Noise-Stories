@@ -122,8 +122,8 @@ Material:
     - _ZWrite: 1
     - fogcontrol: 1.43
     - fogwarp: 0.9
-    - noiseoffset: 79.848724
-    - noisescale: 0.010000015
+    - noiseoffset: 322.4232
+    - noisescale: -0.000000014901161
     - rad: 0.53
     m_Colors:
     - Vector2_dcc9a8a30a6047fbb8caba65200bfd2a: {r: 1, g: 1, b: 1, a: 0}

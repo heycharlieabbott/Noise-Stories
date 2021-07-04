@@ -11,9 +11,14 @@ public class postauto : MonoBehaviour
     Bloom bloom;
 
     public Material noiseworld;
+
+    public AudioSource zoneb;
+    public AudioSource zonea;
+    public AudioClip zoneaaudio;
+    public AudioClip zonebaudio;
     
     private float x = 0.17f;
-    private Vector4 tint2 = new Color(0f,255f,255f, 0f);
+    private Vector4 tint2 = new Color(0f,100f,100f, 0f);
     private Vector4 tint1 = new Color(255f,255f,255f, 0f);
 
     private Vector4 noisetiles = new Vector4(1f,1f,1f,1f);
@@ -57,10 +62,22 @@ public class postauto : MonoBehaviour
     void Start()
     {
         
+        zonea = gameObject.AddComponent<AudioSource>();
+        zoneb = gameObject.AddComponent<AudioSource>();
+
+        zonea.clip = zoneaaudio;
+        zoneb.clip = zonebaudio;
+
+        zonea.loop = true;
+        zoneb.loop = true;
+
+        zonea.Play();
+
 
         if (volume.profile.TryGet<Bloom>(out bloom)){}
         
-        noiseworld.SetFloat("noisescale",x);
+        noiseworld.SetFloat("noisescale",0.17f);
+        noiseworld.SetFloat("fogwarp", 0.9f);
 
         
 
@@ -83,12 +100,24 @@ public class postauto : MonoBehaviour
                 StartCoroutine(FadeAudioSource.StartFade(noiseworld, 3f,1f, 1f));
                 StartCoroutine(FadeAudioSource.StartFadeTwo(noiseworld, 3f,0.9f));
                 bloom.tint.value = tint1;
+                
+                 if (zonea.isPlaying != true){
+                    zonea.Play();
+                    
+                }
+                zonea.volume = 1f;
+                zoneb.volume = 0f;
             }
             if(gamemode == 2){
                 StartCoroutine(FadeAudioSource.StartFade(noiseworld, 3f,20f, 15f));
                 StartCoroutine(FadeAudioSource.StartFadeTwo(noiseworld, 10f,60f));
                 bloom.tint.value = tint2;
+                if (zoneb.isPlaying != true){
+                    zoneb.Play();
+                }
                 
+                zonea.volume = 0f;
+                zoneb.volume = 1f;
             }
             //noiseworld.SetFloat("noisescale",x);
             

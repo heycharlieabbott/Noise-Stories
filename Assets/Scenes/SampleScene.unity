@@ -132,7 +132,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 164481437}
-  - component: {fileID: 164481436}
   m_Layer: 0
   m_Name: camcover
   m_TagString: Untagged
@@ -140,19 +139,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &164481436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164481435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027f0d9946afd6243a5ee3dcee108ab7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initpos: {x: 0, y: 0, z: 0}
 --- !u!4 &164481437
 Transform:
   m_ObjectHideFlags: 0
@@ -217,7 +203,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   volume: {fileID: 653260036}
   noiseworld: {fileID: 2100000, guid: c99b24469cb64c24197d9ef4bc9af94c, type: 2}
-  gamemode: 0
+  zoneb: {fileID: 0}
+  zonea: {fileID: 0}
+  zoneaaudio: {fileID: 8300000, guid: eb3c780b5fefea34aa7274717ac9d2e2, type: 3}
+  zonebaudio: {fileID: 8300000, guid: 41a742c1037ea304a9485a84a54924c5, type: 3}
+  gamemode: 1
 --- !u!4 &653260038
 Transform:
   m_ObjectHideFlags: 0
