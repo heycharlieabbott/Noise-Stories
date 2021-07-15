@@ -32,6 +32,15 @@ float SphereDist(float3 p, float3 ptwo, float rad, float3 modvec, float3 cubesiz
    
   return d;
   }
+
+  float3 GetNormal(float3 p, float3 ptwo, float rad, float3 modvec, float3 cubesize){
+    float2 e = float2(0.02, 0.);
+    float3 n = SphereDist(p, ptwo, rad, modvec, cubesize) - float3(
+        SphereDist((p - e.xyy),ptwo, rad, modvec, cubesize),
+        SphereDist((p - e.yxy), ptwo, rad, modvec, cubesize),
+        SphereDist((p - e.yyx),ptwo, rad, modvec, cubesize));
+    return normalize(n);
+  }
  
  
  float RayMarch (float3 ro, float3 rd, float3 modvec, float rad, float3 cubesize){
@@ -74,6 +83,8 @@ void marcher_float (float3 campos, float3 rd, float2 uv, float3 modvec, float ra
     if (d < maxdist){
 
         col.rgb = 1.;
+        float3 n = GetNormal(campos,rd + time, modvec + noise, rad + 10., cubesize);
+        col.rgb *= dot(n, rd + time);
         if (fogwarp >= 1.){
           col *= sin(fog * fogwarp);
           col.r *= abs(cos(campos.z /30.));

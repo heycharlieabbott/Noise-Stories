@@ -279,20 +279,20 @@ namespace UnityTemplateProjects
         bool IsCameraRotationAllowed()
         {
 #if ENABLE_INPUT_SYSTEM
-            bool canRotate = Mouse.current != null ? Mouse.current.rightButton.isPressed : false;
+            bool canRotate = Mouse.current != null ? Mouse.current.leftButton.isPressed : false;
             canRotate |= Gamepad.current != null ? Gamepad.current.rightStick.ReadValue().magnitude > 0 : false;
             return canRotate;
 #else
-            return Input.GetMouseButton(1);
+            return Input.GetMouseButton(0);
 #endif
         }
 
         bool IsRightMouseButtonDown()
         {
 #if ENABLE_INPUT_SYSTEM
-            return Mouse.current != null ? Mouse.current.rightButton.isPressed : false;
+            return Mouse.current != null ? Mouse.current.leftButton.isPressed : false;
 #else
-            return Input.GetMouseButtonDown(1);
+            return Input.GetMouseButtonDown(0);
 #endif
         }
 
@@ -301,7 +301,7 @@ namespace UnityTemplateProjects
 #if ENABLE_INPUT_SYSTEM
             return Mouse.current != null ? !Mouse.current.rightButton.isPressed : false;
 #else
-            return Input.GetMouseButtonUp(1);
+            return Input.GetMouseButtonUp(0);
 #endif
         }
 
