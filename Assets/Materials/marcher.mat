@@ -122,7 +122,7 @@ Material:
     - _ZWrite: 1
     - fogcontrol: 1.43
     - fogwarp: 0.9
-    - noiseoffset: 45.937603
+    - noiseoffset: 626.15265
     - noisescale: 0.17
     - rad: 0.53
     m_Colors:

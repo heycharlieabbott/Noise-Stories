@@ -80,11 +80,14 @@ void marcher_float (float3 campos, float3 rd, float2 uv, float3 modvec, float ra
 
     float fog = 1-d/maxdist*fogcontrol;
 
+    float3 n = GetNormal(campos/200.,rd, modvec, rad + 10., cubesize);
+
     if (d < maxdist){
 
         col.rgb = 1.;
-        float3 n = GetNormal(campos,rd + time, modvec + noise, rad + 10., cubesize);
-        col.rgb *= dot(n, rd + time);
+       //float3 n = GetNormal(campos/10.,rd, modvec + noise, rad + 10., cubesize);
+        rd.x *= sin(time) * 7.;
+        col.rgb = dot(n,rd + sin(time));
         if (fogwarp >= 1.){
           col *= sin(fog * fogwarp);
           col.r *= abs(cos(campos.z /30.));
@@ -92,8 +95,8 @@ void marcher_float (float3 campos, float3 rd, float2 uv, float3 modvec, float ra
           col.b *= abs(sin(col.r * col.g * 3.));
           col *= fog;
         }
-        else col *= fog;
-        
+        //else col.rgb *= pow(fog,3. - n);
+        else col.rgb *= fog;
         
     }
 
